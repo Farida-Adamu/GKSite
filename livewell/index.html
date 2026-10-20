@@ -128,8 +128,8 @@ a{color:#1D70B7}a:hover{color:#111111}
 /* blocks */
 .tree{display:flex;gap:4px;height:440px;width:100%;max-width:760px;text-align:left}
 .tcol{display:flex;flex-direction:column;gap:4px;min-width:0}
-.blk{min-height:0;padding:14px;display:flex;flex-direction:column;gap:6px;color:#fff;background:var(--ink);transition:opacity .45s ease,transform .45s ease}
-.blk.deep{background:var(--deep)}
+.blk{min-height:0;padding:14px;display:flex;flex-direction:column;gap:6px;color:var(--ink);background:var(--light);transition:opacity .45s ease,transform .45s ease}
+.blk.deep{background:var(--deep);color:#fff}
 .blk b{font-family:'Space Mono',ui-monospace,monospace;font-size:clamp(28px,6vw,40px);line-height:1}
 .blk span{font-size:16px;line-height:1.3}
 /* about */
@@ -333,7 +333,6 @@ a{color:#1D70B7}a:hover{color:#111111}
 <section class="close"><div class="wrap stack">
 <button class="switch" type="button" role="switch" aria-checked="false" aria-controls="method" data-open-method=""><span class="track"><span class="knob"></span></span><span>How we got these numbers</span></button>
 <button class="btn" type="button" aria-controls="report-form" data-open-form="">Get the full report</button>
-<p>Media enquiries: <a href="#">[email placeholder]</a></p>
 </div></section>
 </main>
 
@@ -380,7 +379,6 @@ a{color:#1D70B7}a:hover{color:#111111}
 
 <footer class="footer"><div class="wrap">
 <span>© 2026 Gatefield</span>
-<a href="#">gatefield website</a>
 </div></footer>
 
 </div>
