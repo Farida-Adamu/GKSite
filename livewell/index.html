@@ -19,7 +19,7 @@
 <style>
 body{margin:0;background:#FAFAF7}
 a{color:#1D70B7}a:hover{color:#0E2A3F}
-.lw{--deep:#1D70B7;--light:#4FAADE;--ink:#0E2A3F;--tint:#E8F3FB;--paper:#FAFAF7;--grey:#C9CED3;--soft:rgba(14,42,63,.74);background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;text-align:center}
+.lw{--deep:#1D70B7;--light:#4FAADE;--ink:#0E2A3F;--tint:#E8F3FB;--paper:#FAFAF7;--grey:#C9CED3;--soft:rgba(14,42,63,.74);background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip;text-align:center}
 .lw *{box-sizing:border-box}
 .lw p,.lw h1,.lw h2,.lw h3,.lw figure{margin:0}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
@@ -75,26 +75,32 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 .fill.light,.sw.light{background:var(--light)}
 .empty{background:var(--grey)}
 .foot{font-size:16px;color:var(--soft);max-width:60ch;margin:48px auto 0}
-/* environment gauges */
-.hazards{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;width:100%;max-width:880px}
-@media (min-width:720px){.hazards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.hz{background:var(--tint);border-radius:8px;padding:28px 16px 24px;display:flex;flex-direction:column;align-items:center;gap:20px}
-.hz-title{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:24px;display:flex;align-items:center;gap:10px}
-.hz-row{display:flex;justify-content:center;align-items:flex-end;gap:40px}
-.gauge{display:flex;flex-direction:column;align-items:center;gap:10px;width:120px}
-.gv{font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:28px;line-height:1}
-.gv.deep{color:var(--deep)}
-.gl{font-size:16px;line-height:1.3}
-.thermo{position:relative;width:44px;height:220px}
-.tube{position:absolute;left:8px;right:8px;top:0;bottom:30px;border:3px solid var(--ink);border-bottom:0;border-radius:14px 14px 0 0;background:var(--paper);overflow:hidden}
-.tfill{position:absolute;left:0;right:0;bottom:0;transform-origin:bottom center;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
-.bulb{position:absolute;left:0;bottom:0;width:44px;height:44px;border-radius:50%;border:3px solid var(--ink)}
-.ticks{position:absolute;left:100%;top:0;bottom:30px;margin-left:6px;width:10px;border-left:2px solid var(--ink);display:flex;flex-direction:column;justify-content:space-between}
-.ticks i{display:block;width:8px;height:2px;background:var(--ink)}
-.orb{position:relative;width:120px;height:120px;border-radius:50%;border:3px solid var(--ink);overflow:hidden;background:var(--paper)}
-.ofill{position:absolute;left:0;right:0;bottom:0;transform-origin:bottom center;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
-.tfill.deep,.ofill.deep,.bulb.deep{background:var(--deep)}
-.tfill.light,.ofill.light,.bulb.light{background:var(--light)}
+/* environment scrollytelling */
+.scrolly{width:100%;max-width:980px;margin-top:16px;display:grid;grid-template-columns:minmax(0,1fr);text-align:center}
+.stage{position:sticky;top:0;z-index:2;background:var(--paper);padding:16px 0 12px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.stage-t{font-size:16px;color:var(--soft);max-width:36ch}
+.hoods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;width:100%;max-width:560px}
+.hood{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0;transition:opacity .4s ease}
+.hood.dim{opacity:.35}
+.hood-h{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(17px,4vw,22px);display:flex;align-items:center;gap:8px}
+.houses{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;width:100%;max-width:240px}
+.h{position:relative;aspect-ratio:1;background:var(--grey);clip-path:polygon(50% 0,100% 45%,100% 100%,0 100%,0 45%);overflow:hidden}
+.h::after{content:'';position:absolute;left:0;right:0;bottom:0;height:var(--p);background:var(--c);transform:scaleY(0);transform-origin:bottom;transition:transform .3s ease var(--d)}
+.hood.lit .h::after{transform:scaleY(1)}
+.hood-v{font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:clamp(30px,8vw,44px);line-height:1;transition:opacity .3s ease}
+.hood:not(.lit) .hood-v{opacity:.25}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.chip{min-height:44px;padding:0 12px;border-radius:22px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font:inherit;font-size:16px;font-weight:600;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+.chip:focus-visible{outline:3px solid var(--light);outline-offset:2px}
+.steps{display:flex;flex-direction:column;gap:45vh;padding:24px 0 20vh}
+.stepcard{background:var(--tint);border-radius:8px;padding:20px 22px;max-width:440px;margin:0 auto;font-size:clamp(19px,2.6vw,22px);line-height:1.45;text-align:left}
+.stepcard b{font-family:'Space Mono',ui-monospace,monospace}
+@media (min-width:960px){
+.scrolly{grid-template-columns:minmax(0,4fr) minmax(0,6fr);gap:48px;align-items:start}
+.stage{grid-column:2;grid-row:1;top:8vh;padding:24px 0}
+.steps{grid-column:1;grid-row:1;padding:30vh 0 30vh}
+}
 /* blocks */
 .tree{display:flex;gap:4px;height:440px;width:100%;max-width:760px;text-align:left}
 .tcol{display:flex;flex-direction:column;gap:4px;min-width:0}
@@ -248,30 +254,33 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 <p class="kicker mono">ENVIRONMENTAL EXPOSURE INCREASES HEALTH VULNERABILITIES</p>
 <h2 class="h2">Heat and polluted air are part of daily life, and harder on the sick.</h2>
 <p class="body">Environmental hazards like extreme heat (69.7% vs. 65.4%) and air pollution (54.0% vs. 50.4%) show a higher baseline in NCD households. While environmental exposure is a population-wide baseline threat, for an NCD household (managing asthma, hypertension, or cardiovascular disease), those factors carry a far higher risk of medical complications and hospitalisation.</p>
-<figure class="fig" data-anim="" style="margin-top: 16px">
-<h3 class="take">About 7 in 10 NCD households faced extreme heat, and more than half faced air pollution.</h3>
-<p class="sub" style="margin-top: -8px">Share of NCD households affected in the past two years</p>
-<div class="hazards">
-<div class="hz" role="img" aria-label="Extreme heat: 69.7% of NCD households.">
-<p class="hz-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Extreme heat</p>
-<div class="hz-row" aria-hidden="true">
-<div class="gauge">
-<p class="gv deep">69.7%</p>
-<div class="thermo"><div class="tube"><div class="tfill deep" style="height: 69.7%"></div></div><div class="bulb deep"></div><div class="ticks"><i></i><i></i><i></i><i></i><i></i></div></div>
+<div class="scrolly" data-scrolly="" data-state="both">
+<div class="stage">
+<p class="stage-t">Every house is one of 100 NCD households, affected in the past two years</p>
+<div class="hoods" role="img" aria-label="Out of 100 NCD households, 69.7 faced extreme heat and 54.0 faced air pollution in the past two years.">
+<div class="hood lit" data-hood="heat">
+<p class="hood-h"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Extreme heat</p>
+<div class="houses" data-n="69.7" style="--c: #1D70B7"></div>
+<p class="hood-v" style="color: #1D70B7">69.7%</p>
+</div>
+<div class="hood lit" data-hood="air">
+<p class="hood-h"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h7"></path></svg>Air pollution</p>
+<div class="houses" data-n="54.0" style="--c: #4FAADE"></div>
+<p class="hood-v">54.0%</p>
 </div>
 </div>
-</div>
-<div class="hz" role="img" aria-label="Air pollution: 54.0% of NCD households.">
-<p class="hz-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h7"></path></svg>Air pollution</p>
-<div class="hz-row" aria-hidden="true" style="min-height: 220px; align-items: center">
-<div class="gauge">
-<p class="gv deep">54.0%</p>
-<div class="orb"><div class="ofill deep" style="height: 54%"></div></div>
+<div class="chips" role="group" aria-label="Choose which hazard to show">
+<button class="chip" type="button" data-show="heat" aria-pressed="false">Extreme heat</button>
+<button class="chip" type="button" data-show="air" aria-pressed="false">Air pollution</button>
+<button class="chip" type="button" data-show="both" aria-pressed="true">Both</button>
 </div>
 </div>
+<div class="steps">
+<div class="stepcard" data-step="heat"><p>In the past two years, <b style="color: #1D70B7">69.7%</b> of NCD households were hit by extreme heat. That is almost 7 in every 10 homes.</p></div>
+<div class="stepcard" data-step="air"><p><b>54.0%</b> faced air pollution: more than half of these homes.</p></div>
+<div class="stepcard" data-step="both"><p>For a family managing asthma, hypertension or heart disease, that exposure carries a far higher risk of complications and hospitalisation.</p></div>
 </div>
 </div>
-</figure>
 </div></section>
 
 <!-- 5. Financial distress -->
@@ -437,6 +446,39 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
       thanks.focus();
     }).catch(function () { err.classList.add('show'); });
   });
+})();
+</script>
+<script>
+(function () {
+  var sc = document.querySelector('[data-scrolly]');
+  if (!sc) return;
+  sc.querySelectorAll('.houses').forEach(function (g) {
+    var n = parseFloat(g.dataset.n), whole = Math.floor(n), part = Math.round((n - whole) * 100);
+    for (var r = 0; r < 10; r++) for (var c = 0; c < 10; c++) {
+      var k = (9 - r) * 10 + c, h = document.createElement('span');
+      h.className = 'h';
+      h.style.setProperty('--p', k < whole ? '100%' : (k === whole ? part + '%' : '0%'));
+      h.style.setProperty('--d', (k * 6) + 'ms');
+      g.appendChild(h);
+    }
+  });
+  var heat = sc.querySelector('[data-hood="heat"]'), air = sc.querySelector('[data-hood="air"]');
+  var chips = sc.querySelectorAll('[data-show]');
+  function set(state) {
+    sc.dataset.state = state;
+    heat.classList.toggle('lit', state !== 'none');
+    heat.classList.toggle('dim', state === 'air');
+    air.classList.toggle('lit', state === 'air' || state === 'both');
+    air.classList.toggle('dim', state === 'heat');
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.show === state ? 'true' : 'false'); });
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { set(c.dataset.show); }); });
+  if (!('IntersectionObserver' in window)) return;
+  set('none');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) set(e.target.dataset.step); });
+  }, { rootMargin: '-55% 0px -30% 0px' });
+  sc.querySelectorAll('[data-step]').forEach(function (el) { io.observe(el); });
 })();
 </script>
 </body>
