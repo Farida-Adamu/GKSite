@@ -95,6 +95,8 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 .chip:focus-visible{outline:3px solid var(--light);outline-offset:2px}
 .steps{display:flex;flex-direction:column;gap:45vh;padding:24px 0 20vh}
 .stepcard{background:var(--tint);border-radius:8px;padding:20px 22px;max-width:440px;margin:0 auto;font-size:clamp(19px,2.6vw,22px);line-height:1.45;text-align:left}
+.stepcard .sub{margin-top:8px}
+.hood-v .of{font-size:16px;font-weight:400}
 .stepcard b{font-family:'Space Mono',ui-monospace,monospace}
 @media (min-width:960px){
 .scrolly{grid-template-columns:minmax(0,4fr) minmax(0,6fr);gap:48px;align-items:start}
@@ -214,37 +216,37 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 
 <!-- 3. Political and systemic stress -->
 <section class="sec"><div class="wrap">
-<div class="stack" style="margin-bottom: 48px">
+<div class="stack">
 <p class="kicker mono">POLITICAL AND SYSTEMIC STRESS COMPOUND THE DISEASE BURDEN</p>
 <h2 class="h2">Families managing chronic illness (NCDs) are more likely to be let down by public services.</h2>
 </div>
 
-<div class="stack step">
-<h3 class="take">8 in 10 NCD households met corruption when using public services.</h3>
-<p class="sub" style="margin-top: -12px">Experienced or witnessed corruption when using public services in the past year.</p>
-<figure class="fig" data-anim="">
-<div class="pair single" aria-hidden="true">
-<div class="pg">
-<p class="pg-num" style="color: #1D70B7">81<span> of 100</span></p>
-<div class="grid" data-grid="81" data-tone="deep"></div>
+<div class="scrolly" data-scrolly="" data-state="both">
+<div class="stage">
+<p class="stage-t">Every house is one of 100 NCD households, in the past year</p>
+<div class="hoods" role="img" aria-label="Out of 100 NCD households in the past year, 81 experienced or witnessed corruption when using public services, and 36 missed a vaccine, screening or medication.">
+<div class="hood lit" data-hood="a">
+<p class="hood-h">Met corruption</p>
+<div class="houses" data-n="81" style="--c: #1D70B7"></div>
+<p class="hood-v" style="color: #1D70B7">81<span class="of"> of 100</span></p>
+</div>
+<div class="hood lit" data-hood="b">
+<p class="hood-h">Missed a service</p>
+<div class="houses" data-n="36" style="--c: #4FAADE"></div>
+<p class="hood-v">36<span class="of"> of 100</span></p>
 </div>
 </div>
-<p class="sr">Experienced or witnessed corruption when using public services in the past year: 81 of 100 NCD households.</p>
-</figure>
-</div>
-
-<div class="stack step">
-<h3 class="take">More than 1 in 3 NCD households missed a public health service they needed.</h3>
-<p class="sub" style="margin-top: -12px">Missed a vaccine, screening or medication in the past year.</p>
-<figure class="fig" data-anim="">
-<div class="pair single" aria-hidden="true">
-<div class="pg">
-<p class="pg-num" style="color: #1D70B7">36<span> of 100</span></p>
-<div class="grid" data-grid="36" data-tone="deep"></div>
+<div class="chips" role="group" aria-label="Choose which finding to show">
+<button class="chip" type="button" data-show="a" aria-pressed="false">Corruption</button>
+<button class="chip" type="button" data-show="b" aria-pressed="false">Missed service</button>
+<button class="chip" type="button" data-show="both" aria-pressed="true">Both</button>
 </div>
 </div>
-<p class="sr">Missed a vaccine, screening or medication in the past year: 36 of 100 NCD households.</p>
-</figure>
+<div class="steps">
+<div class="stepcard" data-step="a"><p><b style="color: #1D70B7">8 in 10</b> NCD households met corruption when using public services.</p><p class="sub">Experienced or witnessed corruption when using public services in the past year.</p></div>
+<div class="stepcard" data-step="b"><p>More than <b>1 in 3</b> NCD households missed a public health service they needed.</p><p class="sub">Missed a vaccine, screening or medication in the past year.</p></div>
+<div class="stepcard" data-step="both"><p>Families managing chronic illness are let down twice: by care they miss, and by corruption when they try to get it.</p></div>
+</div>
 </div>
 
 </div></section>
@@ -258,26 +260,26 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 <div class="stage">
 <p class="stage-t">Every house is one of 100 NCD households, affected in the past two years</p>
 <div class="hoods" role="img" aria-label="Out of 100 NCD households, 69.7 faced extreme heat and 54.0 faced air pollution in the past two years.">
-<div class="hood lit" data-hood="heat">
+<div class="hood lit" data-hood="a">
 <p class="hood-h"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Extreme heat</p>
 <div class="houses" data-n="69.7" style="--c: #1D70B7"></div>
 <p class="hood-v" style="color: #1D70B7">69.7%</p>
 </div>
-<div class="hood lit" data-hood="air">
+<div class="hood lit" data-hood="b">
 <p class="hood-h"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h7"></path></svg>Air pollution</p>
 <div class="houses" data-n="54.0" style="--c: #4FAADE"></div>
 <p class="hood-v">54.0%</p>
 </div>
 </div>
 <div class="chips" role="group" aria-label="Choose which hazard to show">
-<button class="chip" type="button" data-show="heat" aria-pressed="false">Extreme heat</button>
-<button class="chip" type="button" data-show="air" aria-pressed="false">Air pollution</button>
+<button class="chip" type="button" data-show="a" aria-pressed="false">Extreme heat</button>
+<button class="chip" type="button" data-show="b" aria-pressed="false">Air pollution</button>
 <button class="chip" type="button" data-show="both" aria-pressed="true">Both</button>
 </div>
 </div>
 <div class="steps">
-<div class="stepcard" data-step="heat"><p>In the past two years, <b style="color: #1D70B7">69.7%</b> of NCD households were hit by extreme heat. That is almost 7 in every 10 homes.</p></div>
-<div class="stepcard" data-step="air"><p><b>54.0%</b> faced air pollution: more than half of these homes.</p></div>
+<div class="stepcard" data-step="a"><p>In the past two years, <b style="color: #1D70B7">69.7%</b> of NCD households were hit by extreme heat. That is almost 7 in every 10 homes.</p></div>
+<div class="stepcard" data-step="b"><p><b>54.0%</b> faced air pollution: more than half of these homes.</p></div>
 <div class="stepcard" data-step="both"><p>For a family managing asthma, hypertension or heart disease, that exposure carries a far higher risk of complications and hospitalisation.</p></div>
 </div>
 </div>
@@ -450,8 +452,7 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 </script>
 <script>
 (function () {
-  var sc = document.querySelector('[data-scrolly]');
-  if (!sc) return;
+  document.querySelectorAll('[data-scrolly]').forEach(function (sc) {
   sc.querySelectorAll('.houses').forEach(function (g) {
     var n = parseFloat(g.dataset.n), whole = Math.floor(n), part = Math.round((n - whole) * 100);
     for (var r = 0; r < 10; r++) for (var c = 0; c < 10; c++) {
@@ -462,14 +463,14 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
       g.appendChild(h);
     }
   });
-  var heat = sc.querySelector('[data-hood="heat"]'), air = sc.querySelector('[data-hood="air"]');
+  var ha = sc.querySelector('[data-hood="a"]'), hb = sc.querySelector('[data-hood="b"]');
   var chips = sc.querySelectorAll('[data-show]');
   function set(state) {
     sc.dataset.state = state;
-    heat.classList.toggle('lit', state !== 'none');
-    heat.classList.toggle('dim', state === 'air');
-    air.classList.toggle('lit', state === 'air' || state === 'both');
-    air.classList.toggle('dim', state === 'heat');
+    ha.classList.toggle('lit', state !== 'none');
+    ha.classList.toggle('dim', state === 'b');
+    hb.classList.toggle('lit', state === 'b' || state === 'both');
+    hb.classList.toggle('dim', state === 'a');
     chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.show === state ? 'true' : 'false'); });
   }
   chips.forEach(function (c) { c.addEventListener('click', function () { set(c.dataset.show); }); });
@@ -479,6 +480,7 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
     entries.forEach(function (e) { if (e.isIntersecting) set(e.target.dataset.step); });
   }, { rootMargin: '-55% 0px -30% 0px' });
   sc.querySelectorAll('[data-step]').forEach(function (el) { io.observe(el); });
+  });
 })();
 </script>
 </body>
