@@ -19,7 +19,7 @@
 <style>
 body{margin:0;background:#FFFFFF}
 a{color:#1D70B7}a:hover{color:#111111}
-.lw{--deep:#1D70B7;--light:#4FAADE;--ink:#111111;--tint:#E8F3FB;--paper:#FFFFFF;--grey:#C9CED3;--soft:#454545;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip;text-align:center}
+.lw{--deep:#1D70B7;--light:#4FAADE;--ink:#0E2A3F;--text:#111111;--tint:#E8F3FB;--paper:#FFFFFF;--grey:#C9CED3;--soft:#454545;background:var(--paper);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip;text-align:center}
 .lw *{box-sizing:border-box}
 .lw p,.lw h1,.lw h2,.lw h3,.lw figure{margin:0}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
@@ -35,7 +35,7 @@ a{color:#1D70B7}a:hover{color:#111111}
 .kicker{font-size:16px;letter-spacing:.14em;color:var(--deep);font-weight:700;max-width:40ch}
 .h1{color:var(--light);font-size:clamp(46px,11vw,96px);line-height:1.02;letter-spacing:-.02em;max-width:16ch}
 .lede{font-size:clamp(20px,3vw,24px);max-width:34ch}
-.scroll{margin-top:16px;display:inline-flex;flex-direction:column;align-items:center;gap:4px;min-height:44px;font-size:16px;color:var(--ink);text-decoration:none}
+.scroll{margin-top:16px;display:inline-flex;flex-direction:column;align-items:center;gap:4px;min-height:44px;font-size:16px;color:var(--text);text-decoration:none}
 .scroll svg{animation:nudge 1.8s ease-in-out infinite}
 @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 .sec{padding:56px 0}
@@ -112,7 +112,7 @@ a{color:#1D70B7}a:hover{color:#111111}
 .hood-v{font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:clamp(30px,8vw,44px);line-height:1;transition:opacity .3s ease}
 .hood:not(.lit) .hood-v{opacity:.25}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
-.chip{min-height:44px;padding:0 12px;border-radius:22px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font:inherit;font-size:16px;font-weight:600;cursor:pointer}
+.chip{min-height:44px;padding:0 12px;border-radius:22px;border:2px solid var(--ink);background:var(--paper);color:var(--text);font:inherit;font-size:16px;font-weight:600;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--ink);color:#fff}
 .chip:focus-visible{outline:3px solid var(--light);outline-offset:2px}
 .steps{display:flex;flex-direction:column;gap:45vh;padding:24px 0 20vh}
@@ -128,7 +128,7 @@ a{color:#1D70B7}a:hover{color:#111111}
 /* blocks */
 .tree{display:flex;gap:4px;height:440px;width:100%;max-width:760px;text-align:left}
 .tcol{display:flex;flex-direction:column;gap:4px;min-width:0}
-.blk{min-height:0;padding:14px;display:flex;flex-direction:column;gap:6px;color:var(--ink);background:var(--light);transition:opacity .45s ease,transform .45s ease}
+.blk{min-height:0;padding:14px;display:flex;flex-direction:column;gap:6px;color:var(--text);background:var(--light);transition:opacity .45s ease,transform .45s ease}
 .blk.deep{background:var(--deep);color:#fff}
 .blk b{font-family:'Space Mono',ui-monospace,monospace;font-size:clamp(28px,6vw,40px);line-height:1}
 .blk span{font-size:16px;line-height:1.3}
@@ -141,7 +141,7 @@ a{color:#1D70B7}a:hover{color:#111111}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:var(--deep);color:#fff;text-decoration:none;font-weight:600;font-size:18px;border-radius:4px}
 .btn:hover{background:var(--ink);color:#fff}
 .btn{border:0;font-family:inherit;cursor:pointer}
-.switch{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:4px 8px;border:0;background:transparent;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
+.switch{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:4px 8px;border:0;background:transparent;font:inherit;font-weight:600;color:var(--text);cursor:pointer}
 .track{position:relative;flex:none;width:54px;height:30px;border-radius:15px;border:2px solid var(--ink);background:var(--paper);transition:background-color .2s,border-color .2s}
 .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--ink);transition:transform .2s,background-color .2s}
 .switch[aria-checked="true"] .track{background:var(--deep);border-color:var(--deep)}
@@ -149,7 +149,7 @@ a{color:#1D70B7}a:hover{color:#111111}
 .switch:focus-visible{outline:2px solid var(--deep);outline-offset:3px;border-radius:6px}
 .form{display:flex;flex-direction:column;gap:16px}
 .field{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:16px}
-.field input{font:inherit;font-weight:400;font-size:18px;min-height:48px;padding:10px 12px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink)}
+.field input{font:inherit;font-weight:400;font-size:18px;min-height:48px;padding:10px 12px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--text)}
 .field input:focus{outline:3px solid var(--light);outline-offset:1px}
 .hp{position:absolute;left:-9999px}
 .form .btn{align-self:flex-start}
@@ -159,10 +159,10 @@ a{color:#1D70B7}a:hover{color:#111111}
 /* methodology drawer */
 .drawer{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;text-align:left}
 .drawer[hidden]{display:none}
-.scrim{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;border:0;padding:0;background:rgba(17,17,17,.55);cursor:pointer;animation:fade .3s ease}
+.scrim{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;border:0;padding:0;background:rgba(14,42,63,.55);cursor:pointer;animation:fade .3s ease}
 .sheet{position:absolute;top:0;right:0;bottom:0;width:min(580px,100%);background:var(--paper);overflow-y:auto;padding:20px 24px 48px;display:flex;flex-direction:column;gap:20px;animation:slide .35s cubic-bezier(.2,.8,.2,1)}
 .sheet-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.x{width:44px;height:44px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:var(--tint);color:var(--ink);cursor:pointer}
+.x{width:44px;height:44px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:var(--tint);color:var(--text);cursor:pointer}
 .sheet .strip{margin:4px 0 8px}
 .sheet .strip div{align-items:flex-start}
 .sheet .strip b{font-size:36px}
