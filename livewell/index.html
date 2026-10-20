@@ -19,110 +19,132 @@
 <style>
 body{margin:0;background:#FAFAF7}
 a{color:#1D70B7}a:hover{color:#0E2A3F}
-.lw{--deep:#1D70B7;--light:#4FAADE;--ink:#0E2A3F;--tint:#E8F3FB;--paper:#FAFAF7;--grey:#C9CED3;--soft:rgba(14,42,63,.74);background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.lw{--deep:#1D70B7;--light:#4FAADE;--ink:#0E2A3F;--tint:#E8F3FB;--paper:#FAFAF7;--grey:#C9CED3;--soft:rgba(14,42,63,.74);background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;text-align:center}
 .lw *{box-sizing:border-box}
 .lw p,.lw h1,.lw h2,.lw h3,.lw figure{margin:0}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 .mono{font-family:'Space Mono','IBM Plex Mono',ui-monospace,monospace}
 .serif{font-family:'Source Serif 4',Georgia,serif;font-weight:600}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;flex-wrap:wrap}
+.stack{display:flex;flex-direction:column;align-items:center;gap:24px;max-width:820px;margin:0 auto}
 .logo{font-family:'Dancing Script',cursive;font-weight:600;font-size:34px;line-height:1;color:var(--deep);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-.top-meta{font-size:16px;color:var(--soft)}
-.hero{min-height:min(100svh,820px);display:flex;align-items:center;padding:48px 0 64px}
-.hero .wrap{width:100%;display:flex;flex-direction:column;gap:24px}
-.kicker{font-size:16px;letter-spacing:.14em;color:var(--deep);font-weight:700}
-.h1{font-size:clamp(46px,11vw,96px);line-height:1.02;letter-spacing:-.02em;max-width:12ch}
-.lede{font-size:clamp(20px,3vw,24px);max-width:32ch}
-.scroll{margin-top:32px;display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:16px;color:var(--ink);text-decoration:none;align-self:flex-start}
+.hero{min-height:min(100svh,680px);display:flex;align-items:center;padding:56px 0}
+.hero .wrap{width:100%}
+.kicker{font-size:16px;letter-spacing:.14em;color:var(--deep);font-weight:700;max-width:40ch}
+.h1{font-size:clamp(46px,11vw,96px);line-height:1.02;letter-spacing:-.02em;max-width:14ch}
+.lede{font-size:clamp(20px,3vw,24px);max-width:34ch}
+.scroll{margin-top:16px;display:inline-flex;flex-direction:column;align-items:center;gap:4px;min-height:44px;font-size:16px;color:var(--ink);text-decoration:none}
 .scroll svg{animation:nudge 1.8s ease-in-out infinite}
 @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-.sec{padding:80px 0;border-top:1px solid var(--grey)}
-.stack{display:flex;flex-direction:column;gap:28px;max-width:720px}
+.sec{padding:56px 0}
+@media (min-width:960px){.sec{padding:80px 0}}
 .big{font-family:'Space Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:clamp(76px,22vw,160px);line-height:.95;letter-spacing:-.04em;color:var(--deep)}
 .big.mid{font-size:clamp(64px,17vw,128px)}
-.stat-text{font-size:clamp(20px,3vw,26px);line-height:1.4;max-width:34ch}
-.h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(28px,6vw,44px);line-height:1.15;letter-spacing:-.01em;max-width:24ch}
-.body{max-width:60ch}
-.take{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(21px,3.4vw,26px);line-height:1.3;max-width:34ch}
-.sub{font-size:16px;color:var(--soft);margin-top:6px}
+.stat-text{font-size:clamp(20px,3vw,26px);line-height:1.4;max-width:36ch}
+.h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(28px,6vw,44px);line-height:1.15;letter-spacing:-.01em;max-width:26ch}
+.body{max-width:62ch}
+.take{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(21px,3.4vw,26px);line-height:1.3;max-width:36ch}
+.sub{font-size:16px;color:var(--soft)}
 .src{font-size:16px;color:var(--soft);line-height:1.45}
-.fig{display:flex;flex-direction:column;gap:20px}
+.fig{display:flex;flex-direction:column;align-items:center;gap:20px;width:100%}
 /* 1 in 8 */
-.people{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;max-width:560px;padding-top:16px;align-items:end}
+.people{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;width:100%;max-width:560px;padding-top:16px;align-items:end}
 .person{width:100%;height:auto;display:block;color:var(--ink);transition:color .4s ease .25s,transform .5s cubic-bezier(.2,.8,.2,1) .25s}
 .person.hi{color:var(--deep);transform:translateY(-14px)}
 .tag{grid-column:6;justify-self:center;white-space:nowrap;font-size:16px;font-weight:700;color:var(--deep);transition:opacity .4s ease .5s}
-.cap{font-size:18px;font-style:italic;font-family:'Source Serif 4',Georgia,serif;font-weight:600}
-/* splits */
-.split{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
-.split-chart{min-width:0}
-@media (min-width:960px){.split{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:start}.split-chart{position:sticky;top:32px}.sec{padding:120px 0}}
 /* dot circle */
-.circle-box{display:flex;flex-wrap:wrap;align-items:center;gap:24px}
+.circle-box{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px}
 .circle{position:relative;width:min(300px,78vw);aspect-ratio:1}
 .cd{position:absolute;width:6.6%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);transition:background-color .25s ease}
 .circle-label{font-size:18px;max-width:12ch;line-height:1.3}
 .circle-label b{display:block;font-family:'Space Mono',ui-monospace,monospace;font-size:48px;line-height:1;color:var(--deep)}
-.bridge{background:var(--ink);color:#fff;padding:72px 0}
-.bridge p{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(26px,5vw,40px);line-height:1.2;max-width:26ch}
+.bridge{background:var(--ink);color:#fff;padding:56px 0}
+.bridge p{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(26px,5vw,40px);line-height:1.2;max-width:26ch;margin:0 auto}
 /* dot grids */
-.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:520px}
-.pg{display:flex;flex-direction:column;gap:12px;min-width:0}
+.step+.step{margin-top:64px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;width:100%;max-width:520px}
+.pg{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
 .pg-num{font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:clamp(34px,9vw,48px);line-height:1}
 .pg-num span{font-size:16px;font-weight:400;letter-spacing:0}
-.pg-lab{font-size:16px;line-height:1.35;display:flex;gap:8px;align-items:flex-start}
+.pg-lab{font-size:16px;line-height:1.35;display:flex;gap:8px;align-items:flex-start;justify-content:center;text-align:left}
 .sw{flex:none;width:14px;height:14px;border-radius:50%;margin-top:3px}
-.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;width:100%}
 .gd{aspect-ratio:1;border-radius:50%;transition:background-color .25s ease}
 .fill.deep,.sw.deep{background:var(--deep)}
 .fill.light,.sw.light{background:var(--light)}
 .empty{background:var(--grey)}
-.foot{font-size:16px;color:var(--soft);max-width:60ch;margin-top:56px}
-.s3-step+.s3-step{margin-top:96px}
-/* bars */
-.bars{display:flex;flex-direction:column;gap:28px;max-width:760px}
-.brow{display:flex;flex-direction:column;gap:8px}
-.blab{font-weight:600}
-.bline{display:flex;align-items:center;gap:12px}
-.btrack{flex:1;min-width:0}
-.bfill{height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px;white-space:nowrap;overflow:hidden;transform-origin:left center;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
-.bfill.deep{background:var(--deep);color:#fff}
-.bfill.light{background:var(--light);color:var(--ink)}
-.bval{flex:none;width:72px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:20px}
+.foot{font-size:16px;color:var(--soft);max-width:60ch;margin:48px auto 0}
+/* environment gauges */
+.hazards{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;width:100%;max-width:880px}
+@media (min-width:720px){.hazards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hz{background:var(--tint);border-radius:8px;padding:28px 16px 24px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.hz-title{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:24px;display:flex;align-items:center;gap:10px}
+.hz-row{display:flex;justify-content:center;align-items:flex-end;gap:40px}
+.gauge{display:flex;flex-direction:column;align-items:center;gap:10px;width:120px}
+.gv{font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:28px;line-height:1}
+.gv.deep{color:var(--deep)}
+.gl{font-size:16px;line-height:1.3}
+.thermo{position:relative;width:44px;height:220px}
+.tube{position:absolute;left:8px;right:8px;top:0;bottom:30px;border:3px solid var(--ink);border-bottom:0;border-radius:14px 14px 0 0;background:var(--paper);overflow:hidden}
+.tfill{position:absolute;left:0;right:0;bottom:0;transform-origin:bottom center;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.bulb{position:absolute;left:0;bottom:0;width:44px;height:44px;border-radius:50%;border:3px solid var(--ink)}
+.ticks{position:absolute;left:100%;top:0;bottom:30px;margin-left:6px;width:10px;border-left:2px solid var(--ink);display:flex;flex-direction:column;justify-content:space-between}
+.ticks i{display:block;width:8px;height:2px;background:var(--ink)}
+.orb{position:relative;width:120px;height:120px;border-radius:50%;border:3px solid var(--ink);overflow:hidden;background:var(--paper)}
+.ofill{position:absolute;left:0;right:0;bottom:0;transform-origin:bottom center;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.tfill.deep,.ofill.deep,.bulb.deep{background:var(--deep)}
+.tfill.light,.ofill.light,.bulb.light{background:var(--light)}
 /* blocks */
-.tree{display:flex;gap:4px;height:440px;max-width:760px}
+.tree{display:flex;gap:4px;height:440px;width:100%;max-width:760px;text-align:left}
 .tcol{display:flex;flex-direction:column;gap:4px;min-width:0}
 .blk{min-height:0;padding:14px;display:flex;flex-direction:column;gap:6px;color:#fff;background:var(--ink);transition:opacity .45s ease,transform .45s ease}
 .blk.deep{background:var(--deep)}
 .blk b{font-family:'Space Mono',ui-monospace,monospace;font-size:clamp(28px,6vw,40px);line-height:1}
 .blk span{font-size:16px;line-height:1.3}
-/* callout */
-.panel{background:var(--tint);padding:72px 0}
-.panel .stack{max-width:760px}
-.wage{display:flex;flex-direction:column;gap:10px}
-.wage-top{font-weight:600}
-.wtrack{height:52px;background:var(--grey);position:relative}
-.wfill{position:absolute;left:0;top:0;bottom:0;width:70%;background:var(--deep);transform-origin:left center;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
-.wlabs{display:grid;grid-template-columns:70fr 30fr;gap:8px;font-size:16px;line-height:1.3}
-.wlabs span:first-child{color:var(--deep);font-weight:600}
-.wlabs span:last-child{text-align:right}
 /* about */
-.strip{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;max-width:900px}
-@media (min-width:640px){.strip{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.strip div{border-top:3px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:4px}
+.strip{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;width:100%;max-width:820px}
+@media (min-width:480px){.strip{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.strip div{border-top:3px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;align-items:center;gap:4px}
 .strip b{font-family:'Space Mono',ui-monospace,monospace;font-size:44px;line-height:1.05;color:var(--deep)}
-.close{background:var(--tint);padding:88px 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:var(--deep);color:#fff;text-decoration:none;font-weight:600;font-size:18px;border-radius:4px;align-self:flex-start}
+.close{background:var(--tint);padding:64px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:var(--deep);color:#fff;text-decoration:none;font-weight:600;font-size:18px;border-radius:4px}
 .btn:hover{background:var(--ink);color:#fff}
-.footer{padding:40px 0 56px}
-.footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;font-size:16px}
+.btn{border:0;font-family:inherit;cursor:pointer}
+.switch{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:4px 8px;border:0;background:transparent;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
+.track{position:relative;flex:none;width:54px;height:30px;border-radius:15px;border:2px solid var(--ink);background:var(--paper);transition:background-color .2s,border-color .2s}
+.knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--ink);transition:transform .2s,background-color .2s}
+.switch[aria-checked="true"] .track{background:var(--deep);border-color:var(--deep)}
+.switch[aria-checked="true"] .knob{background:#fff;transform:translateX(24px)}
+.switch:focus-visible{outline:2px solid var(--deep);outline-offset:3px;border-radius:6px}
+.form{display:flex;flex-direction:column;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:16px}
+.field input{font:inherit;font-weight:400;font-size:18px;min-height:48px;padding:10px 12px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink)}
+.field input:focus{outline:3px solid var(--light);outline-offset:1px}
+.hp{position:absolute;left:-9999px}
+.form .btn{align-self:flex-start}
+.form-err{display:none;background:var(--tint);padding:12px 14px}
+.form-err.show{display:block}
+.thanks{font-size:20px}
+/* methodology drawer */
+.drawer{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;text-align:left}
+.drawer[hidden]{display:none}
+.scrim{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;border:0;padding:0;background:rgba(14,42,63,.55);cursor:pointer;animation:fade .3s ease}
+.sheet{position:absolute;top:0;right:0;bottom:0;width:min(580px,100%);background:var(--paper);overflow-y:auto;padding:20px 24px 48px;display:flex;flex-direction:column;gap:20px;animation:slide .35s cubic-bezier(.2,.8,.2,1)}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.x{width:44px;height:44px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:var(--tint);color:var(--ink);cursor:pointer}
+.sheet .strip{margin:4px 0 8px}
+.sheet .strip div{align-items:flex-start}
+.sheet .strip b{font-size:36px}
+@keyframes slide{from{transform:translateX(100%)}}
+@keyframes fade{from{opacity:0}}
+.footer{padding:32px 0 48px}
+.footer .wrap{display:flex;flex-direction:column;gap:8px;align-items:center;font-size:16px}
 .footer a:not(.logo){min-height:44px;display:inline-flex;align-items:center}
 /* scroll-in states, only when JS + motion are on */
 .js [data-anim]:not(.in) .person.hi{color:var(--ink);transform:none}
 .js [data-anim]:not(.in) .tag{opacity:0}
 .js [data-anim]:not(.in) .fill{background:var(--grey)}
-.js [data-anim]:not(.in) .bfill,.js [data-anim]:not(.in) .wfill{transform:scaleX(0)}
+.js [data-anim]:not(.in) .tfill,.js [data-anim]:not(.in) .ofill{transform:scaleY(0)}
 .js [data-anim]:not(.in) .blk{opacity:0;transform:scale(.96)}
 .js .reveal{transition:opacity .6s ease,transform .6s ease}
 .js .reveal:not(.in){opacity:0;transform:translateY(18px)}
@@ -131,25 +153,18 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 </head>
 <body>
 <div class="lw">
-
-<header class="top"><div class="wrap top-in">
-<!-- Swap the text below for the Gatefield SVG wordmark -->
-<a class="logo" href="#top" aria-label="Gatefield">Gatefield</a>
-<span class="top-meta">Initial findings · October 2026</span>
-</div></header>
-
 <main>
 
 <!-- 1. Opening -->
-<section class="hero" id="top"><div class="wrap">
+<section class="hero" id="top"><div class="wrap stack">
 <p class="kicker mono">THE LIVEWELL REPORT</p>
 <h1 class="h1 serif">Longevity factors in Nigeria</h1>
 <p class="lede">Initial findings from a survey of 1,070 adults in Lagos, Kano and the FCT.</p>
-<a class="scroll" href="#one-in-eight"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v13M4 10l6 6 6-6"></path></svg>Scroll</a>
+<a class="scroll" href="#one-in-eight">Scroll<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v13M4 10l6 6 6-6"></path></svg></a>
 </div></section>
 
 <section class="sec" id="one-in-eight"><div class="wrap stack">
-<div class="reveal" data-anim="" style="display: flex; flex-direction: column; gap: 16px">
+<div class="stack reveal" data-anim="" style="gap: 16px">
 <p class="big">1 in 8</p>
 <p class="stat-text">young adults we surveyed, aged 18 to 35, already live with a long-term health condition such as diabetes, high blood pressure or heart disease.</p>
 </div>
@@ -165,20 +180,17 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 <svg class="person" viewBox="0 0 40 100" aria-hidden="true"><circle cx="20" cy="11" r="10" fill="currentColor"></circle><rect x="5" y="25" width="30" height="40" rx="12" fill="currentColor"></rect><rect x="8" y="58" width="10" height="42" rx="4" fill="currentColor"></rect><rect x="22" y="58" width="10" height="42" rx="4" fill="currentColor"></rect></svg>
 <span class="tag mono" aria-hidden="true">1 in 8</span>
 </div>
-<figcaption class="cap">These are conditions we usually expect in older people.</figcaption>
 </figure>
 <p class="body">Young people in Nigeria are facing a rising tide of chronic conditions, driven by economic pressure, changing lifestyles and limited access to care.</p>
 </div></section>
 
 <!-- 2. Half of households -->
-<section class="sec"><div class="wrap split">
-<div class="stack reveal" data-anim="">
+<section class="sec"><div class="wrap stack">
+<div class="stack reveal" data-anim="" style="gap: 16px">
 <p class="big">49%</p>
 <h2 class="h2">Half of the households we surveyed manage a long-term condition, for themselves or a family member.</h2>
 </div>
-<div class="split-chart">
 <figure class="fig" data-anim="">
-<p class="take">Almost half of households are managing a long-term condition.</p>
 <div class="circle-box">
 <div class="circle" aria-hidden="true" data-circle="49">
 
@@ -186,9 +198,7 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 <p class="circle-label"><b>49</b>in every 100 households</p>
 </div>
 <p class="sr">Dot chart: 49 of 100 dots filled, showing 49 in every 100 households manage a long-term condition.</p>
-<p class="src">Source: Gatefield, The Livewell Report survey of 1,070 adults, 2026.</p>
 </figure>
-</div>
 </div></section>
 
 <section class="bridge"><div class="wrap">
@@ -197,24 +207,20 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 
 <!-- 3. Political and systemic stress -->
 <section class="sec"><div class="wrap">
-<div class="stack" style="margin-bottom: 64px">
+<div class="stack" style="margin-bottom: 48px">
 <p class="kicker mono">POLITICAL AND SYSTEMIC STRESS COMPOUND THE DISEASE BURDEN</p>
-<h2 class="h2">Families managing chronic illness are more likely to be let down by public services.</h2>
-<p class="body">Households living with a long-term condition were more likely to miss out on public health services, and more likely to meet corruption when they tried to use them.</p>
+<h2 class="h2">Families managing chronic illness (NCDs) are more likely to be let down by public services.</h2>
 </div>
 
-<div class="split s3-step">
-<div class="stack">
-<h3 class="take">More than 1 in 3 households managing a long-term condition missed a public health service they needed.</h3>
-<p class="sub">Missed a vaccine, screening or medication in the past year.</p>
-</div>
-<div class="split-chart">
+<div class="stack step">
+<h3 class="take">More than 1 in 3 NCD households missed a public health service they needed.</h3>
+<p class="sub" style="margin-top: -12px">Missed a vaccine, screening or medication in the past year.</p>
 <figure class="fig" data-anim="">
 <div class="pair" aria-hidden="true">
 <div class="pg">
 <p class="pg-num" style="color: #1D70B7">36<span> of 100</span></p>
 <div class="grid" data-grid="36" data-tone="deep"></div>
-<p class="pg-lab"><span class="sw deep"></span>Households with a long-term condition</p>
+<p class="pg-lab"><span class="sw deep"></span>NCD households</p>
 </div>
 <div class="pg">
 <p class="pg-num">28<span> of 100</span></p>
@@ -222,24 +228,19 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 <p class="pg-lab"><span class="sw light"></span>Other households</p>
 </div>
 </div>
-<p class="sr">Missed a vaccine, screening or medication in the past year: 36 of 100 households with a long-term condition, compared with 28 of 100 other households.</p>
-<p class="src">Source: Gatefield, The Livewell Report survey of 1,070 adults, 2026.</p>
+<p class="sr">Missed a vaccine, screening or medication in the past year: 36 of 100 NCD households, compared with 28 of 100 other households.</p>
 </figure>
 </div>
-</div>
 
-<div class="split s3-step">
-<div class="stack">
-<h3 class="take">8 in 10 households managing a long-term condition met corruption when using public services.</h3>
-<p class="sub">Experienced or witnessed corruption when using public services in the past year.</p>
-</div>
-<div class="split-chart">
+<div class="stack step">
+<h3 class="take">8 in 10 NCD households met corruption when using public services.</h3>
+<p class="sub" style="margin-top: -12px">Experienced or witnessed corruption when using public services in the past year.</p>
 <figure class="fig" data-anim="">
 <div class="pair" aria-hidden="true">
 <div class="pg">
 <p class="pg-num" style="color: #1D70B7">81<span> of 100</span></p>
 <div class="grid" data-grid="81" data-tone="deep"></div>
-<p class="pg-lab"><span class="sw deep"></span>Households with a long-term condition</p>
+<p class="pg-lab"><span class="sw deep"></span>NCD households</p>
 </div>
 <div class="pg">
 <p class="pg-num">71<span> of 100</span></p>
@@ -247,47 +248,51 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 <p class="pg-lab"><span class="sw light"></span>Other households</p>
 </div>
 </div>
-<p class="sr">Experienced or witnessed corruption when using public services in the past year: 81 of 100 households with a long-term condition, compared with 71 of 100 other households.</p>
-<p class="src">Source: Gatefield, The Livewell Report survey of 1,070 adults, 2026.</p>
+<p class="sr">Experienced or witnessed corruption when using public services in the past year: 81 of 100 NCD households, compared with 71 of 100 other households.</p>
 </figure>
 </div>
-</div>
 
-<p class="foot">Differences are statistically significant: missed services p = 0.0087; corruption p = 0.0002.</p>
 </div></section>
 
 <!-- 4. Environmental exposure -->
-<section class="sec"><div class="wrap stack" style="max-width: 1120px">
+<section class="sec"><div class="wrap stack">
 <p class="kicker mono">ENVIRONMENTAL EXPOSURE INCREASES HEALTH VULNERABILITIES</p>
 <h2 class="h2">Heat and polluted air are part of daily life, and harder on the sick.</h2>
-<p class="body">Extreme heat and air pollution affect most households. For a family already managing asthma, hypertension or heart disease, that exposure carries a much higher risk of complications and hospital stays.</p>
-<figure class="fig" data-anim="" style="margin-top: 24px">
-<h3 class="take">About 7 in 10 households faced extreme heat, and half faced air pollution.</h3>
-<p class="sub" style="margin-top: -8px">Affected in the past two years</p>
-<div class="bars" role="img" aria-label="Extreme heat: 69.7% of households with a long-term condition, 65.4% of other households. Air pollution: 54.0% of households with a long-term condition, 50.4% of other households.">
-<div class="brow">
-<p class="blab">Extreme heat</p>
-<div class="bline"><div class="btrack"><div class="bfill deep" style="width: 69.7%">Long-term condition</div></div><span class="bval">69.7%</span></div>
-<div class="bline"><div class="btrack"><div class="bfill light" style="width: 65.4%">Other households</div></div><span class="bval">65.4%</span></div>
-</div>
-<div class="brow">
-<p class="blab">Air pollution</p>
-<div class="bline"><div class="btrack"><div class="bfill deep" style="width: 54%"></div></div><span class="bval">54.0%</span></div>
-<div class="bline"><div class="btrack"><div class="bfill light" style="width: 50.4%"></div></div><span class="bval">50.4%</span></div>
+<p class="body">Environmental hazards like extreme heat (69.7% vs. 65.4%) and air pollution (54.0% vs. 50.4%) show a higher baseline in NCD households. While environmental exposure is a population-wide baseline threat, for an NCD household (managing asthma, hypertension, or cardiovascular disease), those factors carry a far higher risk of medical complications and hospitalisation.</p>
+<figure class="fig" data-anim="" style="margin-top: 16px">
+<h3 class="take">About 7 in 10 NCD households faced extreme heat, and more than half faced air pollution.</h3>
+<p class="sub" style="margin-top: -8px">Share of NCD households affected in the past two years</p>
+<div class="hazards">
+<div class="hz" role="img" aria-label="Extreme heat: 69.7% of NCD households.">
+<p class="hz-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Extreme heat</p>
+<div class="hz-row" aria-hidden="true">
+<div class="gauge">
+<p class="gv deep">69.7%</p>
+<div class="thermo"><div class="tube"><div class="tfill deep" style="height: 69.7%"></div></div><div class="bulb deep"></div><div class="ticks"><i></i><i></i><i></i><i></i><i></i></div></div>
 </div>
 </div>
-<p class="src">Source: Gatefield, The Livewell Report survey of 1,070 adults, 2026.</p>
+</div>
+<div class="hz" role="img" aria-label="Air pollution: 54.0% of NCD households.">
+<p class="hz-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h7"></path></svg>Air pollution</p>
+<div class="hz-row" aria-hidden="true" style="min-height: 220px; align-items: center">
+<div class="gauge">
+<p class="gv deep">54.0%</p>
+<div class="orb"><div class="ofill deep" style="height: 54%"></div></div>
+</div>
+</div>
+</div>
+</div>
 </figure>
 </div></section>
 
 <!-- 5. Financial distress -->
-<section class="sec"><div class="wrap stack" style="max-width: 1120px">
+<section class="sec"><div class="wrap stack">
 <p class="kicker mono">FINANCIAL DISTRESS IMPACTS HEALTH AND NUTRITION</p>
-<div class="reveal" data-anim="" style="display: flex; flex-direction: column; gap: 20px">
+<div class="stack reveal" data-anim="" style="gap: 16px">
 <p class="big mid">52%</p>
 <h2 class="h2">Half of households faced financial strain or went without treatment because of healthcare costs.</h2>
 </div>
-<figure class="fig" data-anim="" style="margin-top: 24px">
+<figure class="fig" data-anim="" style="margin-top: 16px">
 <h3 class="take">How households covered healthcare costs in the past year</h3>
 <div class="tree" role="img" aria-label="Borrowed money 27%. Family support 25%. Cut back on food and basic spending 14%, highlighted. Sold assets 13%.">
 <div class="tcol" style="flex: 52 1 0px">
@@ -299,44 +304,59 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 <div class="blk" style="flex: 13 1 0px; transition-delay: 360ms"><b>13%</b><span>Sold assets</span></div>
 </div>
 </div>
-<p class="src">Share of all respondents. Households could choose more than one.</p>
 </figure>
-</div></section>
-
-<section class="panel"><div class="wrap stack">
-<p class="big mid" style="font-size: clamp(60px, 16vw, 120px)">₦1,589</p>
-<p class="stat-text">The minimum daily cost of a healthy diet for one adult, as of April 2026. Over a month, that is almost <strong style="color: #1D70B7">70% of the national minimum wage</strong>.</p>
-<figure class="wage" data-anim="" role="img" aria-label="Bar showing the monthly minimum wage. About 70% of it is the cost of a healthy diet for one adult; the remaining 30% is everything else.">
-<p class="wage-top">Monthly minimum wage</p>
-<div class="wtrack"><div class="wfill"></div></div>
-<div class="wlabs" aria-hidden="true"><span>A healthy diet for one adult</span><span>Everything else</span></div>
-</figure>
-<p class="body">When treatment costs this much, families cut back on nutritious food. Cheaper, less healthy diets then push up the risk of the same chronic conditions.</p>
-<p class="src">Source: National Bureau of Statistics (NBS), cost of a healthy diet, April 2026.</p>
-</div></section>
-
-<!-- 6. About -->
-<section class="sec"><div class="wrap stack" style="max-width: 1120px">
-<h2 class="h2">About this study</h2>
-<p class="body">We ran a pilot survey with 1,070 adults across Lagos, Kano and the Federal Capital Territory (Abuja), asking about their everyday health, out-of-pocket costs and living conditions. We spoke with people in urban centres, peri-urban neighbourhoods and rural communities. Nigeria has one of the youngest populations in the world, and over two-thirds of our respondents were aged 18 to 35, split evenly between men and women.</p>
-<div class="strip">
-<div><b>1,070</b><span>adults surveyed</span></div>
-<div><b>3</b><span>locations: Lagos · Kano · FCT</span></div>
-<div><b>68%</b><span>aged 18 to 35</span></div>
-</div>
-<p class="body">These are initial findings from the Nigeria pilot of Gatefield's Longevity Index, which will expand to more countries in sub-Saharan Africa.</p>
 </div></section>
 
 <!-- 7. Close -->
 <section class="close"><div class="wrap stack">
-<h2 class="h2">The full Livewell Report is coming soon.</h2>
-<a class="btn" href="#">Get the full report</a>
+<button class="switch" type="button" role="switch" aria-checked="false" aria-controls="method" data-open-method=""><span class="track"><span class="knob"></span></span><span>How we got these numbers</span></button>
+<button class="btn" type="button" aria-controls="report-form" data-open-form="">Get the full report</button>
 <p>Media enquiries: <a href="#">[email placeholder]</a></p>
 </div></section>
 </main>
 
+<!-- Methodology drawer -->
+<div class="drawer" hidden id="method" role="dialog" aria-modal="true" aria-labelledby="method-title">
+<button class="scrim" type="button" tabindex="-1" aria-label="Close methodology" data-close-drawer=""></button>
+<div class="sheet">
+<div class="sheet-head">
+<h2 class="h2" id="method-title">Methodology</h2>
+<button class="x" type="button" aria-label="Close methodology" data-close-drawer=""><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"></path></svg></button>
+</div>
+<div class="strip">
+<div><b>1,070</b><span>adults surveyed</span></div>
+<div><b>3</b><span>Lagos · Kano · FCT</span></div>
+<div><b>68%</b><span>aged 18 to 35</span></div>
+</div>
+<p>We ran a pilot survey asking 1,070 people across Lagos, Kano, and the Federal Capital Territory (Abuja) about their everyday health, out-of-pocket expenses, and living conditions. To uncover the hidden, everyday friction keeping Nigerians from living longer and healthier lives. We spoke with adults living across urban centers, peri-urban neighborhoods, and rural communities. Because Nigeria boasts one of the youngest populations in the world, over two-thirds of our respondents were young adults aged 18 to 35, split evenly between men and women.</p>
+<p>Our survey explored the daily trade-offs people make to stay healthy. We asked about chronic health conditions, catastrophic medical debt, environmental threats like extreme heat and air pollution, and where people go first when they get sick.</p>
+<p>This release highlights initial findings.</p>
+</div>
+</div>
+
+<!-- Full report form drawer (Netlify Forms) -->
+<div class="drawer" hidden id="report-form" role="dialog" aria-modal="true" aria-labelledby="form-title">
+<button class="scrim" type="button" tabindex="-1" aria-label="Close form" data-close-drawer=""></button>
+<div class="sheet">
+<div class="sheet-head">
+<h2 class="h2" id="form-title">Get the full report</h2>
+<button class="x" type="button" aria-label="Close form" data-close-drawer=""><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"></path></svg></button>
+</div>
+<p>Leave your details and we will send you The Livewell Report as soon as it is published.</p>
+<form class="form" name="full-report" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-report-form="">
+<input type="hidden" name="form-name" value="full-report">
+<p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label class="field"><span>Full name</span><input type="text" name="name" autocomplete="name" required=""></label>
+<label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" required=""></label>
+<label class="field"><span>Organisation</span><input type="text" name="organisation" autocomplete="organization"></label>
+<p class="form-err" data-form-err="" role="alert">Something went wrong. Please try again.</p>
+<button class="btn" type="submit">Send me the report</button>
+</form>
+<p class="thanks" data-thanks="" hidden tabindex="-1">Thank you. We will be in touch when the full report is ready.</p>
+</div>
+</div>
+
 <footer class="footer"><div class="wrap">
-<a class="logo" href="#top" aria-label="Gatefield">Gatefield</a>
 <span>© 2026 Gatefield</span>
 <a href="#">gatefield website</a>
 </div></footer>
@@ -382,6 +402,52 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
     });
   }, { threshold: 0.3 });
   root.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
+})();
+</script>
+<script>
+(function () {
+  var opener = null, sw = document.querySelector('[data-open-method]');
+  function closeAll() {
+    document.querySelectorAll('.drawer').forEach(function (d) { d.hidden = true; });
+    document.body.style.overflow = '';
+    if (sw) sw.setAttribute('aria-checked', 'false');
+    if (opener) opener.focus();
+  }
+  function open(id, btn) {
+    closeAll();
+    opener = btn;
+    var d = document.getElementById(id);
+    d.hidden = false;
+    document.body.style.overflow = 'hidden';
+    d.querySelector('.x').focus();
+  }
+  if (sw) sw.addEventListener('click', function () {
+    if (sw.getAttribute('aria-checked') === 'true') { closeAll(); return; }
+    open('method', sw);
+    sw.setAttribute('aria-checked', 'true');
+  });
+  document.querySelectorAll('[data-open-form]').forEach(function (b) {
+    b.addEventListener('click', function () { open('report-form', b); });
+  });
+  document.querySelectorAll('[data-close-drawer]').forEach(function (b) { b.addEventListener('click', closeAll); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+  var f = document.querySelector('[data-report-form]');
+  if (f) f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var err = f.querySelector('[data-form-err]'), thanks = document.querySelector('[data-thanks]');
+    err.classList.remove('show');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(f)).toString()
+    }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      f.hidden = true;
+      f.previousElementSibling.hidden = true;
+      thanks.hidden = false;
+      thanks.focus();
+    }).catch(function () { err.classList.add('show'); });
+  });
 })();
 </script>
 </body>
