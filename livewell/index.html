@@ -149,15 +149,6 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 .switch[aria-checked="true"] .track{background:var(--deep);border-color:var(--deep)}
 .switch[aria-checked="true"] .knob{background:#fff;transform:translateX(24px)}
 .switch:focus-visible{outline:2px solid var(--deep);outline-offset:3px;border-radius:6px}
-.form{display:flex;flex-direction:column;gap:16px}
-.field{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:16px}
-.field input{font:inherit;font-weight:400;font-size:18px;min-height:48px;padding:10px 12px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--text)}
-.field input:focus{outline:3px solid var(--light);outline-offset:1px}
-.hp{position:absolute;left:-9999px}
-.form .btn{align-self:flex-start}
-.form-err{display:none;background:var(--tint);padding:12px 14px}
-.form-err.show{display:block}
-.thanks{font-size:20px}
 /* methodology drawer */
 .drawer{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;text-align:left}
 .drawer[hidden]{display:none}
@@ -332,7 +323,7 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 <!-- 7. Close -->
 <section class="close"><div class="wrap stack">
 <button class="switch" type="button" role="switch" aria-checked="false" aria-controls="method" data-open-method=""><span class="track"><span class="knob"></span></span><span>How we got these numbers</span></button>
-<button class="btn" type="button" aria-controls="report-form" data-open-form="">Get the full report</button>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSea-h5iDw8VSKlz2oPE8ny1E9k3mRKw4zcEWfbZax4IWpJN3g/viewform" target="_blank" rel="noopener">Get the full report</a>
 </div></section>
 </main>
 
@@ -355,27 +346,6 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
 </div>
 </div>
 
-<!-- Full report form drawer (Netlify Forms) -->
-<div class="drawer" hidden id="report-form" role="dialog" aria-modal="true" aria-labelledby="form-title">
-<button class="scrim" type="button" tabindex="-1" aria-label="Close form" data-close-drawer=""></button>
-<div class="sheet">
-<div class="sheet-head">
-<h2 class="h2" id="form-title">Get the full report</h2>
-<button class="x" type="button" aria-label="Close form" data-close-drawer=""><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17"></path></svg></button>
-</div>
-<p>Leave your details and we will send you The Livewell Report as soon as it is published.</p>
-<form class="form" name="full-report" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-report-form="">
-<input type="hidden" name="form-name" value="full-report">
-<p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-<label class="field"><span>Full name</span><input type="text" name="name" autocomplete="name" required=""></label>
-<label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" required=""></label>
-<label class="field"><span>Organisation</span><input type="text" name="organisation" autocomplete="organization"></label>
-<p class="form-err" data-form-err="" role="alert">Something went wrong. Please try again.</p>
-<button class="btn" type="submit">Send me the report</button>
-</form>
-<p class="thanks" data-thanks="" hidden tabindex="-1">Thank you. We will be in touch when the full report is ready.</p>
-</div>
-</div>
 
 <footer class="footer"><div class="wrap">
 <span>© 2026 Gatefield</span>
@@ -446,28 +416,8 @@ a{color:#1D70B7}a:hover{color:#0E2A3F}
     open('method', sw);
     sw.setAttribute('aria-checked', 'true');
   });
-  document.querySelectorAll('[data-open-form]').forEach(function (b) {
-    b.addEventListener('click', function () { open('report-form', b); });
-  });
   document.querySelectorAll('[data-close-drawer]').forEach(function (b) { b.addEventListener('click', closeAll); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
-  var f = document.querySelector('[data-report-form]');
-  if (f) f.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var err = f.querySelector('[data-form-err]'), thanks = document.querySelector('[data-thanks]');
-    err.classList.remove('show');
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(f)).toString()
-    }).then(function (r) {
-      if (!r.ok) throw new Error(r.status);
-      f.hidden = true;
-      f.previousElementSibling.hidden = true;
-      thanks.hidden = false;
-      thanks.focus();
-    }).catch(function () { err.classList.add('show'); });
-  });
 })();
 </script>
 <script>
